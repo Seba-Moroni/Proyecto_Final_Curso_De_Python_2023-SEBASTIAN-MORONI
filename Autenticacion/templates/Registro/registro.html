@@ -1,0 +1,53 @@
+<head>
+
+    {% load static %}
+
+    <!-- Bootstrap -->
+    <link href= "{% static 'ProyectoWebApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+     <!-- Fonts -->
+    
+     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina</title>
+    <!-- Styles -->
+    <link href="{% static 'ProyectoWebApp/css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    
+</head>
+
+<div class="menu container">
+    <a href="#"><img style="border-radius: 100%;border: 2px solid whitesmoke;" src="{% static 'ProyectoWebApp/img/logo.jpg' %}" class="logo" alt=""></a>
+    <h1 style="font-size: 130px; text-align:match-parent; color:chocolate" class="navbar">ALLPA BURGER</h1>
+    <input type="checkbox" id="menu">
+    <label for="menu"><img src="{% static 'ProyectoWebApp/img/menu.png' %}" class="menu-icono" alt=""></label>
+</div>
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<form class="header-content container" style="color: whitesmoke; width:100%" action="" method="post">
+
+    {% csrf_token %}
+    
+    <div style="color: whitesmoke; width:100%"   class="contact-form-container container">
+        
+        {{ form }}
+        
+        <button type="submit" class="btn">Registrate</button>
+    </div>    
+
+</form>
+
+{% endblock %}

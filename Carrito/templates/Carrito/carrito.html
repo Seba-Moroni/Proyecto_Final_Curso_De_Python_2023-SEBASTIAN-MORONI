@@ -1,0 +1,75 @@
+
+<table class="table table bordered" style="color:whitesmoke; text-align:center; position:center">
+    <thead>
+        <tr style="background-color:chocolate;">
+            <th colspan="6" class="text-center">
+                Carro de Compras
+            </th>
+        </tr>
+        <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Sub-Total Producto</th>
+            <th>Agregar / Quitar</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+            {% if request.session.carro.items %}
+
+            {% for key, value in request.session.carro.items %}
+
+        <tr class="text-center" >
+                <td>{{value.nombre}}</td>
+                <td>{{value.cantidad}}</td>
+                <td>{{value.precio}}</td>         
+                <td>
+                    <a href="{% url 'Carrito:agregar' value.producto_id %}" class="btn btn-sm btn-success"> + </a>
+                    <a href="{% url 'Carrito:restar' value.producto_id %}" class="btn btn-sm btn-success"> - </a><br> 
+                    
+                    {{value.precio}}             
+                </td>
+        </tr>
+            {% endfor %}
+
+            {% else %}
+        <tr>
+            <td colspan="3">
+                    <div class="alert alert.danger text-center">
+                        No se han incluido producto en tu Carrito de Compras
+                    </div>
+                </td>
+        </tr>
+
+            {% endif %}
+
+    </tbody>
+
+    <tfoot>
+        <tr style="background-color:chocolate;">
+            <td colspan="6">
+            <p style="float:rigth; color:whitesmoke; text-align:rigth; "> Total: $ &nbsp; &nbsp; {{importe_total_carro}} &nbsp; &nbsp; &nbsp; (Son Pesos argenticos con IVA Incluido)</p> 
+            </td>
+        </tr>
+        
+        {% if request.session.carro.items %}
+
+            <tr>
+                <td colspan="3" style="text-align:center">
+
+                    <a href="../pedidos" class="btn btn-sm btn-success"> Hecer Pedido </a><br>
+
+                </td>          
+
+            </tr>
+
+        {% endif %}
+
+    </tfoot>
+    
+</table>
+
+
+
+   

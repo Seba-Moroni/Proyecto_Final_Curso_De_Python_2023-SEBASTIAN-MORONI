@@ -1,0 +1,92 @@
+
+
+  {% extends "ProyectoWebApp/base.html" %}
+
+  {% load static %}
+
+  {% block content %}
+<section>
+    <div class="header-content container">
+
+        <div class="header-txt">
+            <h1>Hamburguesas</h1>
+            <p >
+                "Nuestras Hamburguesas: Un Festín de Sabor" En Allpa Burger, estamos orgullosos de presentar una selección de hamburguesas que deleitarán tus sentidos. Cada hamburguesa es una obra maestra culinaria, preparada con los ingredientes más frescos y de la más alta calidad. Desde la jugosidad de nuestra carne a la frescura de los vegetales y la suavidad de los panes, cada bocado es una experiencia extraordinaria.¿Qué hace que nuestras hamburguesas sean tan especiales? Nuestra dedicación a la calidad y a la creatividad. Hemos fusionado lo clásico con lo innovador para ofrecer una variedad de sabores que van desde las tradicionales Cheese burgers hasta creaciones únicas como la Hamburguesa "Allpa Supreme" con aguacate, bacon y salsa especial. Además, ofrecemos opciones vegetarianas y veganas que son igual de deliciosas. Creemos en la diversidad y en satisfacer a todos nuestros clientes. Así que, si buscas una experiencia gastronómica que despierte tus papilas gustativas, ven y prueba nuestras hamburguesas. Te prometemos una experiencia inolvidable que te hará volver una y otra vez. ¡Es hora de disfrutar de un festín de sabor en Allpa Burger!" </p>
+
+            <div class="botones">
+                <a href="#" class="btn-1">Comprar <img class="icon" src="{% static 'ProyectoWebApp/img/car.svg' %}" alt="icon"></a>
+                <a href="#" class="btn-2">Informacion <img class="icon" src="{% static 'ProyectoWebApp/img/arrow.svg' %}" alt="icon"></a>
+            </div>
+        </div>
+
+        <div class="header-img">
+            <img style="border-radius: 10%;" src="{% static 'ProyectoWebApp/img/principal2.jpg' %}" class="hamburger" alt="hamburger">
+        </div>
+
+    </div>
+</section>
+
+<section style="background-color:chocolate;" class="info">
+
+    <div class="info-content container">
+
+        <div class="info-txt">
+            <p>Los mejores Burgers de San Miguel</p>
+            <h2>Informacion</h2>
+
+            <div class="info-sec">
+
+                <div  class="info-1">
+                    <img src="{% static 'ProyectoWebApp/img/f1.svg' %}" alt="">
+                    <div class="info-2">
+                        <h3>Experiencia</h3>
+                        <p>
+                            Con más de 20 años de experiencia en el rubro.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="info-1">
+                    <img src="{% static 'ProyectoWebApp/img/f2.svg' %}" alt="">
+                    <div class="info-2">
+                        <h3>Lo que buscabas</h3>    
+                        <p>
+                            Servicio premiun de Hamburguesas caseras y sustentables.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="info-img">
+            <img src="{% static 'ProyectoWebApp/img/hamburger2.png' %}" alt="">
+        </div>
+
+    </div>
+    <script src="{% static '/ProyectoWebApp/static/ProyectoWebApp/vendor/jquery/script.js' %}"></script>    
+</section>
+
+<section>
+    <div class="header-content container">
+        <div class="header-img" style="padding:100px;">
+            <img style="border-radius: 10%;" src="{% static 'ProyectoWebApp/img/carne.jpeg' %}" class="hamburger" alt="hamburger">
+        </div>
+        <div class="header-txt">    
+            <h1>La Mejor Calidad al Servicio de Nuestros Clientes</h1>        
+            <p > En nuestra hamburguesería, la calidad es nuestra prioridad y eso se refleja en cada bocado que disfrutas. Utilizamos únicamente la mejor materia prima para crear nuestras hamburguesas. Cada ingrediente, desde la carne de res hasta los vegetales frescos y los condimentos seleccionados, es de la más alta calidad. Esto nos permite ofrecer hamburguesas que no solo son deliciosas, sino también jugosas y llenas de sabor. Creemos que la excelencia en los ingredientes es la base de una hamburguesa perfecta, y estamos comprometidos a ofrecerte una experiencia culinaria excepcional en cada visita.</p>            
+        </div>    
+    </div>
+</section>
+
+
+<section class="header-content-mapa container">
+    <div class="info-content-mapa container" style="width: 80%; margin: 0 auto; background-color: chocolate; text-align: center;">
+        <iframe class="info-content-mapa container" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3286.3904523730534!2d-58.71019832426235!3d-34.54366817297574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcbd4e345aec19%3A0x25348ab19fe03884!2sAllpa%20Burger!5e0!3m2!1ses-419!2sar!4v1696337964578!5m2!1ses-419!2sar" width="600" height="450" style="border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>           
+</section>
+
+
+    {% endblock %}
+   

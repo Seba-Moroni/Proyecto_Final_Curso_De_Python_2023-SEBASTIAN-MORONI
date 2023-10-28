@@ -1,0 +1,37 @@
+{% extends "ProyectoWebApp/base.html" %}
+{% load static %}
+
+{% block content %}
+<div   class="contact-form-container container">
+    
+    <form action="" method="POST" class="contact-form">
+        {% csrf_token %} <!-- crea una clave de seguridad aleatoria de control -->
+        
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" class="form-control" rows="5" required></textarea>
+        </div>
+        
+        {% if "valido" in request.GET %}
+            <strong><p class="success-message" style="background-color:white; color:green; z-index:1000;">SU MENSAJE SE HA RECIBIDO CORRECTAMENTE !!!</p></strong>
+        {% elif "novalido" in request.GET %}
+            <strong><p class="error-message" style="background-color:white;color: red;z-index:1000;">HA OCURRIDO UN ERROR AL ENVIAR SU MENSAJE.</p></strong>
+        {% endif %}
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Enviar">
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+
