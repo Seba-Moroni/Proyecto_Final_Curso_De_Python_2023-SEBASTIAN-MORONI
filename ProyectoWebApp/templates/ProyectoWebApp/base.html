@@ -18,7 +18,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina</title>
+    <title>Allpa Burger</title>
     <!-- Styles -->
     <link href="{% static 'ProyectoWebApp/css/style.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -33,11 +33,14 @@
             <div style="width:100%;color:chocolate; text-align:right;margin-right:100px; ">
                 {% if user.is_authenticated %}  
 
-                <span style="color:white">Hola:</span> {{user.username}} &nbsp;&nbsp; <a href="{% url 'Cerrar_Sesion' %}" style="color:white">Cerrar Sesion</a>
+                <span style="color:white">Hola:</span>
+                <a style="color:chocolate" href="{% url 'Ver_Usuarios' %}">{{ user.username }}</a>
+                <a href="{% url 'Cerrar_Sesion' %}" style="color:white">Cerrar Sesion</a>
+
 
                 {% else  %}
 
-                <a href="{% url 'Logear' %}" style="color:white">Login</a>&nbsp;&nbsp;<a href="{% url 'Autenticacion' %}"   style="color:white">Registrate</a>
+                <a href="{% url 'Logear' %}" style="color:white">Login</a>&nbsp;&nbsp;<a href="{% url 'Autenticacion' %}"  style="color:white">Registrate</a>
 
                 {% endif %}
 
@@ -52,10 +55,11 @@
                 <nav class="navbar">
                     <ul>
                         <li><a href="{% url 'Home' %}">Inicio</a></li>
-                        <li><a href="{% url 'Servicios' %}">Que Ofrecemos</a></li>
+                        <li><a href="{% url 'Servicios' %}">Nosotros</a></li>
                         <li><a href="{% url 'Tienda' %}">La Carta</a></li>
                         <li><a href="{% url 'Blog' %}">Blog</a></li>
                         <li><a href="{% url 'Contacto' %}">Contactanos</a></li>
+                        
                         <!--<li><a style="color: whitesmoke;"  href="#" id="abrirModal"><i class="fas fa-shopping-cart"></i></a></li>-->
                                                    
                     </ul>
@@ -84,9 +88,9 @@
             <h4>Dirección</h4>
             <ul>
                 <li><a href="#">Italia 1059,</a></li> 
-                <li>  <a href="#">San Miguel,</a></li> 
-                <li>  <a href="#">Buenos Aires,</a></li> 
-                <li> <a href="#">Argentina.</a>   </li>                                                  
+                <li><a href="#">San Miguel,</a></li> 
+                <li><a href="#">Buenos Aires,</a></li> 
+                <li><a href="#">Argentina.</a></li>                                                  
             </ul>
         </div>
         

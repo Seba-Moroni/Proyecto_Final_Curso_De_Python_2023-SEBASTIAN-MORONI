@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
     'ProyectoWebApp',
     'Servicios',
     'Blog',
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
     'Autenticacion',
     'crispy_forms',
     'Pedidos',
+    'ChatMoro',
     
     
     
@@ -185,4 +187,17 @@ MESSAGE_TAGS={
     
 }
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar_Full': [
+            ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'Blockquote'],
+            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink', 'Anchor'],
+            ['Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar'],
+            ['Styles', 'Format', 'Font', 'FontSize'],
+            ['TextColor', 'BGColor'],
+        ],
+    },
+}
 

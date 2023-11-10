@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path, include
 from ProyectoWebApp import views
 from Autenticacion import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 
@@ -31,11 +33,7 @@ urlpatterns = [
     
     # Estas URLS Pertenece a la APP ProyectoWebApp
     path('', include('ProyectoWebApp.urls')),
-    #path('servicios/', views.servicios, name="Servicios"),
-    #path('tienda/', views.tienda, name="Tienda"),
-    #path('blog/', views.blog, name="Blog"),
-    #path('contacto/', views.contacto, name="Contacto"),
-    
+        
     
      # Estas URLS Pertenece a la APP Servicios
     path('servicios/', include('Servicios.urls')),
@@ -58,7 +56,10 @@ urlpatterns = [
     path('autenticacion/', include('Autenticacion.urls')),    
       
      # Estas URLS Pertenece a la APP Pedidos
-    path('pedidos/', include('Pedidos.urls')),      
+    path('pedidos/', include('Pedidos.urls')),    
+    
+     # Estas URLS Pertenece a la APP ChatMoro
+    path('chat/', include('ChatMoro.urls')),   
     
     
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

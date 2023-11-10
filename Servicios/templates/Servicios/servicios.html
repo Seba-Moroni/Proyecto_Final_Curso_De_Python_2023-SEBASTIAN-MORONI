@@ -1,31 +1,34 @@
 {% extends "ProyectoWebApp/base.html" %}
+{% load static %}
 
-  {% load static %}
+{% block content %}
 
-  {% block content %}
-
-  {% for servicio in servicios %} 
-
-  <section>
-    <div    class="header-content-service container">
-      
-      <div class="header-txt">
-            <img style="border-radius: 0%;" src="{{servicio.imagen.url}}" class="hamburger" alt="hamburger">
-      </div>
-      
-      <div  class="header-txt">
+{% for servicio in servicios %}
+<section>
+    <div class="header-content-service container">
+        <div class="header-txt">
+            <img style="border-radius: 0%;" src="{{ servicio.imagen.url }}" class="hamburger" alt="hamburger">
+        </div>
+        <div class="header-txt">
             <h1>{{ servicio.titulo }}</h1>
-            <p style="color:chocolate">{{ servicio.contenido }} </p>            
-      </div>
-
-
+            <p style="color:chocolate">{{ servicio.contenido }}</p>
+        </div>
     </div>
-  </section>
+</section>
+{% if request.user.is_superuser %}
+<div class="container">
+    <a href="{% url 'editar_servicio' servicio.id %}" class="btn btn-primary">Editar Servicio</a>
+    <a href="{% url 'eliminar_servicio' servicio.id %}" class="btn btn-danger">Eliminar Servicio</a>
+</div>
+{% endif %}
+{% endfor %}
+<br/>
+<br/>
+{% if request.user.is_superuser %}
+<div class="container">
+    <a href="{% url 'agregar_servicio' %}" class="btn btn-primary">Agregar Servicio</a>
+</div>
+{% endif %}
 
-  
+{% endblock %}
 
-  {% endfor %}
-
-
-  {% endblock %}
-   

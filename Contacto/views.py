@@ -14,7 +14,7 @@ def contacto(request):
             nombre=request.POST.get("nombre")
             email=request.POST.get("email")
             contenido=request.POST.get("contenido")
-            email=EmailMessage("Mensaje desde Wasi Burger", "El Usuario {} con dirección {} escribe lo siguiente: \n\n" .format(nombre, email, contenido),"",["sebastian.moroni84@gmail.com"],reply_to=[email])
+            email=EmailMessage("Mensaje desde Allpa Burger", "El Usuario {} con dirección {} escribe lo siguiente: \n\n" .format(nombre, email, contenido),"",["sebastian.moroni84@gmail.com"],reply_to=[email])
             try:
                 email.send()
                 return redirect("/contacto/?valido")    

@@ -1,0 +1,26 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% block content %}
+
+<h1 class="header-content container" style="color:chocolate; font-size:40px">Lista de Usuarios</h1>
+<div class="container" style="color:white">
+    <ul>
+      {% for usuario in usuarios %}
+        <li>
+          <strong style="color:chocolate; font-size:30px">Nombre de usuario:</strong> <span style="color:white; font-size:30px">{{ usuario.username }}</span><br>
+          <strong style="color:chocolate; font-size:30px">Nombre:</strong> <span style="color:white; font-size:30px">{{ usuario.first_name }}</span><br>
+          <strong style="color:chocolate; font-size:30px">Apellido:</strong> <span style="color:white; font-size:30px">{{ usuario.last_name }}</span><br>
+          <strong style="color:chocolate; font-size:30px">Correo electrónico:</strong><span style="color:white; font-size:30px"> {{ usuario.email }}</span><br>
+          <strong style="color:chocolate; font-size:30px">Biografía:</strong> <span style="color:white; font-size:30px">{{ datos_extra.biografia }}</span><br>
+          <strong style="color:chocolate; font-size:30px">Avatar:</strong> <img src="{{ datos_extra.avatar.url }}" alt="Avatar">
+
+          
+        </li>
+        <a href="{% url 'Editar_Perfil' %}" class="btn btn-primary">Editar Perfil</a>
+        <a href="{% url 'Cambiar_Contraseña' %}"class="btn btn-primary">Actualizar Contraseña</a>
+
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
+

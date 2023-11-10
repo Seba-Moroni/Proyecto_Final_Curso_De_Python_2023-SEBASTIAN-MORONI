@@ -1,0 +1,12 @@
+{% extends "ProyectoWebApp/base.html" %}
+{% block content %}
+<div style="color:white" class="header-content container">
+    <h2>Editar Producto</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Actualizar Producto</button>
+        <a href="{% url 'Tienda' %}" class="btn btn-secondary">Volver a la tienda</a>
+    </form>
+</div>
+{% endblock %}

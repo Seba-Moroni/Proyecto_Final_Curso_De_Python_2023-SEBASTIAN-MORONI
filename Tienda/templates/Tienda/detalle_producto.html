@@ -1,0 +1,18 @@
+{% extends "ProyectoWebApp/base.html" %}
+{% load static %}
+
+{% block content %}
+  <div style="text-align: center;" class="header-content container">
+    <div style="color:white" class="header-txt">
+      <h2>{{ producto.nombre }}</h2>
+      <br/>
+      <p>Descripción: {{ producto.descripcion }}</p>
+      <br/>
+      <a href="{% url 'Tienda' %}" class="btn btn-primary">Volver a la Tienda</a>
+    </div>
+  </div>  
+{% endblock %}
+
+
+
+

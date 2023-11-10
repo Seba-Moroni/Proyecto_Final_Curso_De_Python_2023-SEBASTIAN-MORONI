@@ -1,0 +1,27 @@
+{% extends "ProyectoWebApp/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div style="color:white" class="header-content container">
+        {% block title_head %}
+        <title>Cambiar Contraseña</title>
+        {% endblock title_head %}
+        
+        {% block h1_header %}
+        <spam style="color:chocolate; font-size:40px">Editar Contraseña</span>
+        {% endblock h1_header %}
+        
+        {% block main %}
+        
+        <form style="color:chocolate; font-size:30px" action={% url "Cambiar_Contraseña" %} method="POST" enctype='multipart/form-data'>
+            {% csrf_token %}
+            <table style="color:white">
+                {{form}}
+            </table>
+            <input class="btn btn-primary" type="submit" value="Editar datos">
+            <a  class="btn btn-primary" href={% url "Cambiar_Contraseña" %}>Actualizar Contraseña</a>
+        </form>
+        
+        {% endblock main %}
+</div>
+{% endblock %}

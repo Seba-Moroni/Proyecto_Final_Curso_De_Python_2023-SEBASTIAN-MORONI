@@ -747,3 +747,21 @@ textarea.form-control {
     border-radius: 2%;
     max-width: 100%;
 }
+
+
+
+.cke_contents {
+    background-color: whitesmoke; 
+    color: chocolate; 
+}
+
+
+.cke_button, .cke_menu {
+    background-color: whitesmoke; 
+    color: chocolate; 
+}
+
+
+.cke_text, .cke_textarea {
+    color: #fff; 
+}
