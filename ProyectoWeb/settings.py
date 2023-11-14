@@ -51,8 +51,9 @@ INSTALLED_APPS = [
     'Carrito',
     'Autenticacion',
     'crispy_forms',
-    'Pedidos',
-    'ChatMoro',
+    'Pedidos',    
+    'Chat',
+    
     
     
     
@@ -91,6 +92,15 @@ TEMPLATES = [
 
 
 WSGI_APPLICATION = 'ProyectoWeb.wsgi.application'
+
+
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
+
 
 
 # Database
@@ -152,17 +162,17 @@ MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
 
 # Configuración de correo electrónico
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.mail.yahoo.com'  # Cambiar si estás utilizando otro proveedor de correo
+EMAIL_HOST = 'smtp.mail.gmail.com'  # Cambiar si estás utilizando otro proveedor de correo
 EMAIL_PORT = 587  # Puerto de Gmail para SMTP
 EMAIL_USE_TLS = True  # Usar TLS para conexión segura
 
 # Credenciales de correo electrónico (reemplazar con tus propias credenciales)
-EMAIL_HOST_USER = 'moroni_sebastian@yahoo.com.ar'
+EMAIL_HOST_USER = 'allpaburger@gmail.com'
 EMAIL_HOST_PASSWORD = '***********'
 
 # Opcional: Configuración de correo predeterminado
-DEFAULT_FROM_EMAIL = 'moroni_sebastian@yahoo.com.ar'
-EMAIL_SUBJECT_PREFIX = 'WASI BURGER'  # Prefijo de asunto de correo (personalizable)
+DEFAULT_FROM_EMAIL = 'allpaburger@gmail.com'
+EMAIL_SUBJECT_PREFIX = 'PEDIDO N°'  # Prefijo de asunto de correo (personalizable)
 
 # Configuración para envío de correos locales en desarrollo
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

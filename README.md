@@ -23,14 +23,23 @@ beautifulsoup4==4.12.2
 blinker==1.6.2
 cachetools==5.3.1
 certifi==2023.7.22
+channels==4.0.0
 charset-normalizer==3.2.0
 click==8.1.6
 colorama==0.4.6
 contourpy==1.1.1
 cycler==0.11.0
 distlib==0.3.7
-Django==4.2.5
+Django==4.2.7
+django-ckeditor==6.3.2
+django-cors-headers==3.13.0
 django-crispy-forms==2.0
+django-environ==0.9.0
+django-js-asset==2.1.0
+django-restframework==0.0.1
+django-storages==1.13.1
+djangorestframework==3.14.0
+djangorestframework-simplejwt==5.3.0
 et-xmlfile==1.1.0
 filelock==3.12.2
 Flask==2.3.2
@@ -55,18 +64,21 @@ openpyxl==3.1.2
 packaging==23.1
 pandas==2.0.3
 persona==0.0.1
-Pillow==10.0.1
+Pillow==9.3.0
 platformdirs==3.10.0
 plotly==5.15.0
 protobuf==4.24.3
+psycopg2==2.9.5
 pyasn1==0.5.0
 pyasn1-modules==0.3.0
 pydata==1.0.0
 PyDrive==1.3.1
 pygame==2.5.1
+PyJWT==2.8.0
 PyMySQL==1.1.0
 pyparsing==3.1.1
 python-dateutil==2.8.2
+python-dotenv==1.0.0
 pytz==2023.3
 PyYAML==6.0.1
 requests==2.31.0
@@ -80,6 +92,7 @@ uritemplate==4.1.1
 urllib3==1.26.16
 virtualenv==20.24.2
 Werkzeug==2.3.6
+
 
 Nota: Revisar documento "requirements.txt" para mayor información. 
 

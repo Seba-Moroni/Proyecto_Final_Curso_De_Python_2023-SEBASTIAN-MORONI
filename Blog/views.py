@@ -13,7 +13,7 @@ def categoria(request, categoria_id):
     return render(request, "Blog/categoria.html", {"categoria": categoria, "posts": posts})
 
 def agregar_post(request):
-    if not request.user.is_anonymous:  # Verifica si el usuario está autenticado
+    if not request.user.is_anonymous:  
         if request.method == 'POST':
             form = PostForm(request.POST, request.FILES)
             if form.is_valid():

@@ -2,11 +2,8 @@
 
     {% load static %}
 
-    <!-- Bootstrap -->
-    <link href= "{% static 'ProyectoWebApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-
-     <!-- Fonts -->
     
+    <link href= "{% static 'ProyectoWebApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">    
      <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
      <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -16,8 +13,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
-    <!-- Styles -->
+    <title>Registro</title>    
     <link href="{% static 'ProyectoWebApp/css/style.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
@@ -46,8 +42,9 @@
         {{ form }}
         
         <button type="submit" class="btn">Registrate</button>
+        <br/><br/>
+        <a  class="btn btn-primary" href={% url "Logear" %}>Volver a Login</a>
     </div>    
-
 </form>
 
 {% endblock %}

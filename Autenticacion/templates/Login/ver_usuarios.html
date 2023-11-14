@@ -2,25 +2,59 @@
 
 {% block content %}
 
+<style>
+    .header-content {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .usuario-container {
+        border: 2px solid white;
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+</style>
+
 <h1 class="header-content container" style="color:chocolate; font-size:40px">Lista de Usuarios</h1>
 <div class="container" style="color:white">
-    <ul>
-      {% for usuario in usuarios %}
-        <li>
-          <strong style="color:chocolate; font-size:30px">Nombre de usuario:</strong> <span style="color:white; font-size:30px">{{ usuario.username }}</span><br>
-          <strong style="color:chocolate; font-size:30px">Nombre:</strong> <span style="color:white; font-size:30px">{{ usuario.first_name }}</span><br>
-          <strong style="color:chocolate; font-size:30px">Apellido:</strong> <span style="color:white; font-size:30px">{{ usuario.last_name }}</span><br>
-          <strong style="color:chocolate; font-size:30px">Correo electrónico:</strong><span style="color:white; font-size:30px"> {{ usuario.email }}</span><br>
-          <strong style="color:chocolate; font-size:30px">Biografía:</strong> <span style="color:white; font-size:30px">{{ datos_extra.biografia }}</span><br>
-          <strong style="color:chocolate; font-size:30px">Avatar:</strong> <img src="{{ datos_extra.avatar.url }}" alt="Avatar">
+    {% for usuario in usuarios %}
+      <div class="usuario-container">
+        <strong style="color:chocolate; font-size:30px">Nombre de usuario:</strong> <span style="color:white; font-size:30px">{{ usuario.username }}</span><br>
+        <strong style="color:chocolate; font-size:30px">Nombre:</strong> <span style="color:white; font-size:30px">{{ usuario.first_name }}</span><br>
+        <strong style="color:chocolate; font-size:30px">Apellido:</strong> <span style="color:white; font-size:30px">{{ usuario.last_name }}</span><br>
+        <strong style="color:chocolate; font-size:30px">Correo electrónico:</strong><span style="color:white; font-size:30px"> {{ usuario.email }}</span><br>
+        
+        {% if usuario.datosextra %}
+          <strong style="color:chocolate; font-size:30px">Biografía:</strong> <span style="color:white; font-size:30px">{{ usuario.datosextra.biografia }}</span><br>
+        {% endif %}
+        
+        {% if usuario.datosextra.avatar %}
+          <strong  style="color:chocolate; font-size:30px">Avatar:</strong> <img style="border-radius:0%;" height="200px;" src="{{ usuario.datosextra.avatar.url }}" alt="Avatar">
+        {% endif %}
+        <br/>
+        <br/>
+        
+        {% if request.user.is_superuser and request.user == usuario %}
+          <div>
+            <a href="{% url 'Editar_Perfil' %}" class="btn btn-primary">Editar Perfil</a>
+            <a href="{% url 'Cambiar_Contraseña' %}" class="btn btn-primary">Actualizar Contraseña</a>
+          </div>
+        {% elif not usuario.is_superuser and not request.user.is_superuser %}
+          <div>
+            <a href="{% url 'Editar_Perfil' %}" class="btn btn-primary">Editar Perfil</a>
+            <a href="{% url 'Cambiar_Contraseña' %}" class="btn btn-primary">Actualizar Contraseña</a>
+          </div>
+        {% endif %}
 
-          
-        </li>
-        <a href="{% url 'Editar_Perfil' %}" class="btn btn-primary">Editar Perfil</a>
-        <a href="{% url 'Cambiar_Contraseña' %}"class="btn btn-primary">Actualizar Contraseña</a>
-
-      {% endfor %}
-    </ul>
+        {% if request.user.is_superuser and not usuario.is_superuser %}
+          <div>
+            <a href="{% url 'eliminar_usuario' usuario.id %}" class="btn btn-danger">Eliminar Usuario</a>
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
   </div>
 {% endblock %}
+
+
 

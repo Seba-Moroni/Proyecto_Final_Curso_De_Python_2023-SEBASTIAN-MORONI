@@ -56,10 +56,15 @@ urlpatterns = [
     path('autenticacion/', include('Autenticacion.urls')),    
       
      # Estas URLS Pertenece a la APP Pedidos
-    path('pedidos/', include('Pedidos.urls')),    
+    path('pedidos/', include('Pedidos.urls')),   
     
-     # Estas URLS Pertenece a la APP ChatMoro
-    path('chat/', include('ChatMoro.urls')),   
+     # Estas URLS Pertenece a la APP Pedidos
+    path('pedidos/', include('Chat.urls')),   
+    
+    
+    
+    
+     
     
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

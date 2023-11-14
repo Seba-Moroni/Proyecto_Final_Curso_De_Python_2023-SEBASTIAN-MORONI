@@ -4,6 +4,9 @@ from django.http import HttpResponse
 from django.core.mail import EmailMessage
 
 # Create your views here.
+
+
+
 def contacto(request):
     
     formulario_contacto=FormularioContacto()

@@ -5,9 +5,9 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit
 
 class UserRegistrationForm(UserCreationForm):
-    first_name = forms.CharField(max_length=30, required=True, help_text='Required. 30 characters or fewer.')
-    last_name = forms.CharField(max_length=30, required=True, help_text='Required. 30 characters or fewer.')
-    email = forms.EmailField(max_length=254, required=True, help_text='Required. Enter a valid email address.')
+    first_name = forms.CharField(label="Nombre", max_length=30, required=True, help_text='Se requieren 30 caracteres o menos.')
+    last_name = forms.CharField(label="Apellido", max_length=30, required=True, help_text='Se requieren 30 caracteres o menos.')
+    email = forms.EmailField(max_length=254, required=True, help_text='Introduzca una dirección de correo electrónico válida.')
 
     class Meta:
         model = User

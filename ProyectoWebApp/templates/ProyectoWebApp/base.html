@@ -4,11 +4,8 @@
 
     {% load static %}
 
-    <!-- Bootstrap -->
-    <link href= "{% static 'ProyectoWebApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-
-     <!-- Fonts -->
     
+    <link href= "{% static 'ProyectoWebApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">     
      <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
      <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -18,8 +15,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Allpa Burger</title>
-    <!-- Styles -->
+    <title>Home</title>    
     <link href="{% static 'ProyectoWebApp/css/style.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
@@ -33,7 +29,10 @@
             <div style="width:100%;color:chocolate; text-align:right;margin-right:100px; ">
                 {% if user.is_authenticated %}  
 
-                <span style="color:white">Hola:</span>
+                <span style="color:white">Bienvenido :</span>
+                {% if request.user.datosextra.avatar %}
+                        <img style="border-radius: 100%;border: 2px solid whitesmoke;" src={{request.user.datosextra.avatar.url}} alt="avatar" height='40px'>
+                {% endif %}
                 <a style="color:chocolate" href="{% url 'Ver_Usuarios' %}">{{ user.username }}</a>
                 <a href="{% url 'Cerrar_Sesion' %}" style="color:white">Cerrar Sesion</a>
 
@@ -55,8 +54,8 @@
                 <nav class="navbar">
                     <ul>
                         <li><a href="{% url 'Home' %}">Inicio</a></li>
-                        <li><a href="{% url 'Servicios' %}">Nosotros</a></li>
-                        <li><a href="{% url 'Tienda' %}">La Carta</a></li>
+                        <li><a href="{% url 'Servicios' %}">Servicios</a></li>
+                        <li><a href="{% url 'Tienda' %}">Menú</a></li>
                         <li><a href="{% url 'Blog' %}">Blog</a></li>
                         <li><a href="{% url 'Contacto' %}">Contactanos</a></li>
                         
@@ -65,11 +64,14 @@
                     </ul>
                                   
                 </nav>
+                
              
             </div>
            
         
         </section>
+
+        
 
     </header>
 
@@ -81,11 +83,23 @@
     
     
     <footer class="footer container">
+               
         
-        <img style="border-radius: 100%;border: 2px solid whitesmoke;"  class="logo-2" src="{% static 'ProyectoWebApp/img/logo.jpg' %} " alt="">
+        <style>
+            .links ul {
+                list-style: none; /* Elimina las viñetas de las listas */
+                padding: 0; /* Elimina el espacio de relleno predeterminado de las listas */
+                margin: 0; /* Elimina el margen predeterminado de las listas */
+            }
+        
+            .links li {
+                margin-bottom: 5px; /* Espaciado entre elementos de la lista */
+            }
+            
+        </style>
         
         <div class="links">
-            <h4>Dirección</h4>
+            <h4 style="font-size: 40px; color:chocolate">Dirección</h4>
             <ul>
                 <li><a href="#">Italia 1059,</a></li> 
                 <li><a href="#">San Miguel,</a></li> 
@@ -95,29 +109,32 @@
         </div>
         
         <div class="links">
-            <h4>Horarios</h4>
+            <h4 style="font-size: 40px; color:chocolate">Horarios</h4>
             <ul>
-                <li><a href="#">De Miercoles a Lunes: </a></li>
+                <li><a href="#">De Miércoles a Lunes: </a></li>
                 <li><a href="#">de 11:30 a 15:30 Hs</a></li>
                 <li><a href="#">de 19:00 a 23:55 Hs</a></li>                
             </ul>
         </div>
         
         <div class="links">
-            <h4>Telfono</h4>
+            <h4 style="font-size: 40px; color:chocolate">Teléfono</h4>
             <ul>
                 <li><a href="#">+54911-6958-2337</a></li>                
             </ul>
-            <h4>Email</h4>
+            <h4 style="font-size: 40px; color:chocolate">Email</h4>
             <ul>
                 <li><a href="#">allpaburger@gmail.com</a></li>                
             </ul>
+            <a target="_blank" href="{% url 'index'  %}" class="btn btn-primary">Chatea con Nosotros</a>
+
         </div>
         
+        
         <div class="links">
-            <h4>NUESTRAS REDES</h4>
+            <h4 style="font-size: 40px; color:chocolate">NUESTRAS REDES</h4>
             <div    class="socials">
-                <a href="https://www.facebook.com/profile.php?id=100089169619717">
+                <a target="_blank" href="https://www.facebook.com/profile.php?id=100089169619717">
                     <div style="background-color:chocolate ;"  class="social">
                         <img src="{% static 'ProyectoWebApp/img/s1.svg' %}" alt="">
                     </div>
@@ -127,12 +144,18 @@
                         <img src="{% static 'ProyectoWebApp/img/s2.svg' %}"  alt="">
                     </div>
                 </a>
-                <a href="https://www.instagram.com/allpa.burger/">
+                <a target="_blank" href="https://www.instagram.com/allpa.burger/">
                     <div style="background-color:chocolate ;" class="social">
                         <img src="{% static 'ProyectoWebApp/img/s3.svg' %}" alt="">
                     </div>
                 </a>
             </div>
+            <br/>
+            
+            
+            
+            
+
         </div>
 
     </footer>

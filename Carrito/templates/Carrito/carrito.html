@@ -36,7 +36,8 @@
             {% else %}
         <tr>
             <td colspan="3">
-                    <div class="alert alert.danger text-center">
+                    
+                    <div class="alert alert-danger text-center">
                         No se han incluido producto en tu Carrito de Compras
                     </div>
                 </td>
@@ -58,7 +59,7 @@
             <tr>
                 <td colspan="3" style="text-align:center">
 
-                    <a href="../pedidos" class="btn btn-sm btn-success"> Hecer Pedido </a><br>
+                    <a href="{% url 'Procesar_Pedido' %}" class="btn btn-sm btn-success"> Hecer Pedido </a><br>
 
                 </td>          
 

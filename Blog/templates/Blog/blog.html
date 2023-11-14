@@ -5,45 +5,42 @@
 
 <section>
   <div class="container">
-      <div id="postCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
-          <div class="carousel-inner">
-              {% for post in posts %}
-                  <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                      <div class="header-content-service">
-                          <div class="header-txt">
-                              <h1>{{ post.titulo }}</h1>
-                              <p style="color: chocolate">{{ post.contenido }}</p>
-                              <p>Fecha de creación: {{ post.created|date:"F d, Y H:i" }}</p> 
-                              {% if user.is_superuser %}
-                                <a href="{% url 'editar_post' post.id %}" class="btn btn-primary">Editar</a>
-                                <a href="{% url 'eliminar_post' post.id %}" class="btn btn-danger">Eliminar</a>
-                              {% endif %}
-                          </div>
-                          <div class="header-txt">
-                              <img style="border-radius: 0%;" src="{{ post.imagen.url }}" class="hamburger" alt="hamburger">
-                          </div>
-                      </div>
-                  </div>
-              {% endfor %}
+    {% for post in posts %}
+      <div class="header-content-blog">
+        <div class="header-txt">
+          <h1>{{ post.titulo }}</h1>
+          <p style="color: chocolate">{{ post.contenido }}</p>
+          <p>Fecha de creación: {{ post.created|date:"F d, Y H:i" }}</p> 
+          {% if user.is_superuser %}
+            <div class="btn-group">
+              <a href="{% url 'editar_post' post.id %}" class="btn btn-primary mr-2">Editar</a>
+              <a href="{% url 'eliminar_post' post.id %}" class="btn btn-danger">Eliminar</a>
+            </div>
+          {% endif %}
+          <div class="mt-2">
+            <a href="{% url 'agregar_post' %}" class="btn btn-primary">Agregar Post</a>
           </div>
-          <a class="carousel-control-prev" href="#postCarousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" ariahidden="true"></span>
-              <span class="sr-only">Anterior</span>
-          </a>
-          <a class="carousel-control-next" href="#postCarousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Siguiente</span>
-          </a>
+        </div>
+        <div class="header-txt">
+          {% if post.imagen %}
+            <img style="border-radius: 0%;" src="{{ post.imagen.url }}" class="hamburger" alt="hamburger">
+          {% else %}
+            <p class="text-center">Imagen no disponible</p>
+          {% endif %}
+        </div>
       </div>
+    {% endfor %}
   </div>
 </section>
 
-{% if user.is_authenticated %} {# Muestra el botón si el usuario está autenticado #}
-<div class="container">
+{% if posts.count == 0 %} 
+  <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
     <a href="{% url 'agregar_post' %}" class="btn btn-primary">Agregar Post</a>
-</div>
+  </div>
 {% endif %}
 
 {% endblock %}
+
+
 
 

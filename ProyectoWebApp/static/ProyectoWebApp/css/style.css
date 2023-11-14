@@ -34,7 +34,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 1000;
+    z-index: 10000000000000000000000000000000;
 }
 
 .logo {
@@ -391,7 +391,7 @@ header {
 }
 
 .footer {
-    padding: 150px 0 100px 0;
+    padding: 30px 0 20px 0;
     display: flex;
     justify-content: space-between;
 }
@@ -657,13 +657,13 @@ textarea.form-control {
 .header-content-service {
     display: flex;
     align-items: center;
-    padding: 300px 0 10px 0;
+    padding: 200px 0 150px 0;
 }
 
 .header-content-blog {
     display: flex;
     align-items: center;
-    padding: 300px 0 3px 0;
+    padding: 200px 0 150px 0;
 }
 
 .product-menu-tienda {
@@ -676,16 +676,16 @@ textarea.form-control {
 
 /* Estilos para el modal */
 .modal {
-    display: none; /* El modal estará oculto inicialmente */
-    position: fixed; /* Posición fija para que ocupe la pantalla completa */
-    z-index: 1000; /* Z-index alto para que esté encima de otros elementos */
-    left: 10%; /* 10% desde el borde izquierdo */
-    top: 25.5%; /* 17.5% desde el borde superior */
-    width: 80%; /* Ancho del 80% de la pantalla */
-    height: 65%; /* Alto del 65% de la pantalla */
-    overflow: auto; /* Habilitar desplazamiento si el contenido es demasiado grande */
-    background-color:peru; /* Fondo color chocolate */
-    color: white; /* Texto blanco */
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 10%;
+    top: 25.5%; 
+    width: 80%; 
+    height: 65%; 
+    overflow: auto; 
+    background-color:black; 
+    color: white; 
     border-radius: 10%;
 }
 
@@ -697,9 +697,9 @@ textarea.form-control {
     left: 5%;
     padding: 10px;
     z-index: 100000000;
-    max-width: 90%; /* Ajustar al 100% del ancho del modal */
-    max-height: 100%; /* Ajustar al 100% de la altura del modal */
-    box-sizing: border-box; /* Incluir el padding en el cálculo del tamaño */
+    max-width: 90%; 
+    max-height: 100%; 
+    box-sizing: border-box;
     background-color: #24252A;
 }
   
@@ -765,3 +765,87 @@ textarea.form-control {
 .cke_text, .cke_textarea {
     color: #fff; 
 }
+
+
+.login-body {
+    background-color: rgba(0, 0, 0, 0.7);
+    background-image: url('https://img.freepik.com/photos-premium/photo-burger-dans-restaurant_7023-255898.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    
+}
+
+.login-body {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    background-image: url('https://www.pizzeria-wieselburg.at/bestellsystem/wp-content/uploads/2022/10/pizzeria-bella-italia-wieselburg-5.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    overflow: hidden; 
+
+}
+
+.contacto-body {
+    margin: 0;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+    background-image: url('https://www.recetasnestle.com.ec/sites/default/files/srh_recipes/4e4293857c03d819e4ae51de1e86d66a.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120vh; /* 100% de la altura de la ventana */
+    overflow: hidden;
+}
+
+.contact-form {
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo negro con transparencia */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Sombra con color blanco */
+    color: white; /* Texto blanco */
+    margin: auto; /* Centra el formulario horizontalmente */
+    margin-top: 10vh; /* Ajusta el margen superior para centrar verticalmente */
+}
+
+.contact-form label {
+    color: white; /* Color de las etiquetas blanco */
+}
+
+.contact-form input,
+.contact-form textarea {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo de los campos de entrada con transparencia */
+    color: white; /* Texto blanco */
+    border: none; /* Sin bordes */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px; /* Espaciado interno */
+    margin-bottom: 10px; /* Espaciado inferior */
+}
+
+.contact-form input[type="submit"] {
+    background-color:chocolate; /* Color de fondo del botón */
+    color: white; /* Texto blanco */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    width: 100%;
+}
+
+.contact-form input[type="submit"]:hover {
+    background-color: chocolate; /* Cambia el color de fondo al pasar por encima */
+    width: 100%;
+
+}
+

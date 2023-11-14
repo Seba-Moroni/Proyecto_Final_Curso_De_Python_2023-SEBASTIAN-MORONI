@@ -2,11 +2,8 @@
 
     {% load static %}
 
-    <!-- Bootstrap -->
-    <link href= "{% static 'ProyectoWebApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-
-     <!-- Fonts -->
     
+    <link href= "{% static 'ProyectoWebApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">     
      <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
      <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -16,17 +13,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <!-- Styles -->
+    <title>Login</title>   
     <link href="{% static 'ProyectoWebApp/css/style.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'ProyectoWebApp/css/login-style.css' %}">
 
     
 </head>
 
+<body class="login-body">
+
 <div class="menu container">
     <a href="#"><img style="border-radius: 100%;border: 2px solid whitesmoke;" src="{% static 'ProyectoWebApp/img/logo.jpg' %}" class="logo" alt=""></a>
-    <h1 style="font-size: 130px; text-align:match-parent; color:chocolate" class="navbar">ALLPA BURGER</h1>
+    <h1 style="font-size: 130px; text-align:match-parent; color:brown" class="navbar">ALLPA BURGER</h1>
     <input type="checkbox" id="menu">
     <label for="menu"><img src="{% static 'ProyectoWebApp/img/menu.png' %}" class="menu-icono" alt=""></label>
 </div>
@@ -40,30 +39,28 @@
     
     {% csrf_token %}
     
-    <div style="color: whitesmoke;">
-        
-        {% if messages %}
-        
-        {% for mensaje in mensajes %}
-        
-        <span style="color:red">{{mensaje}}</span>
-        
-        {% endfor %}
-        
-        {% endif %}
-    </div>
-    
+   
     <div style="color: whitesmoke; width:100%; max-height: 100vh;"   class="contact-form-container container">
         <br>
         {{form}}
+        
+        <div style="color:red; font-zise:36px;">
+            {% if messages %}
+                {% for mensaje in messages %}
+                    <strong><span style="color:red; font-size:36px;">{{ mensaje }}</span></strong>
+                {% endfor %}
+            {% endif %}
+        </div>
         <br/>
-        <br/>
+        
         <button type="submit" class="btn">Ingresa al sitio</button>
+        
         <br/>
         <br/>
-        <a href="{% url 'Autenticacion' %}" style="color:white">Registrate</a>
+        
+        <strong><a style="font-size:20px;color:brown; background: whitesmoke;" href="{% url 'Autenticacion' %}" >Registrate</a></strong>
     </div>    
 
 </form>
-
+</body>
 {% endblock %}

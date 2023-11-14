@@ -1,10 +1,10 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.db.models import Sum, F, FloatField
-
 from Tienda.models import Producto
 
 # Create your models here.
+
 
 User=get_user_model()
 

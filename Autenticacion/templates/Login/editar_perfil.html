@@ -4,24 +4,22 @@
 {% block content %}
     <div style="color:white" class="header-content container">
         {% block title_head %}
-        <title style="color:chocolate; font-size:30px">Editar Perfil</title>
+            <title style="color:chocolate; font-size:30px">Editar Perfil</title>
         {% endblock title_head %}
         
         {% block h1_header %}
-        <spam style="color:chocolate; font-size:40px">Editar Perfil</span>
+            <span style="color:chocolate; font-size:40px">Editar Perfil</span>
         {% endblock h1_header %}
         
         {% block main %}
-        
-        <form style="color:white" action={% url "Home" %} method="POST" enctype='multipart/form-data'>
-            {% csrf_token %}
-            <table style="color:white">
-                {{formulario}}
-            </table>
-            <input class="btn btn-primary" type="submit" value="Grabras y Volver a Inicio">
-            <a class="btn btn-primary" href={% url "Home" %}>Cambiar Password</a>
-        </form>
-        
+            <form style="color:white" action="{% url 'Editar_Perfil' %}" method="POST" enctype='multipart/form-data'>
+                {% csrf_token %}
+                <table style="color:white">
+                    {{ formulario.as_table }}
+                </table>
+                <input class="btn btn-primary" type="submit" value="Guardar y Volver a Inicio">
+                <a class="btn btn-primary" href="{% url 'Cambiar_Contraseña' %}">Cambiar Contraseña</a>
+            </form>
         {% endblock main %}
-</div>
+    </div>
 {% endblock %}

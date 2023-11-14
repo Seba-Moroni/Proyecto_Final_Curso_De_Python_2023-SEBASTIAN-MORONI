@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from Carrito.carrito import Carro
 from Pedidos.models import LineaPedido, Pedido
@@ -52,8 +52,8 @@ def enviar_mail(**kwargs):
         
         
         mensaje_texto=strip_tags(mensaje)
-        from_email="moroni_sebastian@yahoo.com.ar"
-        #to=kwargs.get("emailusuario")
-        to="moroni_sebastian@yahoo.com.ar"
+        from_email="allpaburger@gmail.com"
+        to=kwargs.get("emailusuario")
+        
         send_mail(asunto, mensaje_texto, from_email,[to],html_message=mensaje)
         

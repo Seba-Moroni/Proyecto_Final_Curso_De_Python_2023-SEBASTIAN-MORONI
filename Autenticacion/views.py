@@ -12,6 +12,10 @@ from django.views.generic import View, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.views.generic.list import ListView
+from django.contrib.auth.decorators import user_passes_test
+
+
+
 
 
 
@@ -44,7 +48,7 @@ class VRegistro (View):
                 messages.error(request, form.error_messages[msg])
             return render(request, 'Registro/registro.html', {'form': form}) 
       
-      
+   
   
            
         
@@ -82,13 +86,15 @@ def logear(request):
 @login_required
 def editar_perfil(request):
     
-    datos_extra = DatosExtra.objects.get(user=request.user)
+    datos_extra = request.user.datosextra
+    
     formulario = EdicionPerfil(instance=request.user, initial={'biografia': datos_extra.biografia, 'avatar': datos_extra.avatar})
     
     if request.method == 'POST':
         formulario = EdicionPerfil(request.POST, request.FILES, instance=request.user)
         
         if formulario.is_valid():
+            
             nueva_biografia = formulario.cleaned_data.get('biografia')
             nueva_avatar = formulario.cleaned_data.get('avatar')
             
@@ -96,19 +102,20 @@ def editar_perfil(request):
                 datos_extra.biografia = nueva_biografia
             if nueva_avatar:
                 datos_extra.avatar = nueva_avatar
-            
+                print('NO SE GUARDARON LOS DATOS')
             datos_extra.save()
             formulario.save()
             
             return redirect('Ver_Usuarios')
+        else:
+            print('NO SE GUARDARON LOS DATOS')
     
-    return render(request, 'Login/editar_perfil.html', {'formulario': formulario})
-
+    return render(request, 'Login/editar_perfil.html', {'formulario':formulario})
 
 
 class CambiarContrasenia(PasswordChangeView): 
     template_name = 'Login/cambiar_contrasenia.html'
-    success_url = reverse_lazy('editar_perfil')
+    success_url = reverse_lazy('Ver_Usuarios')
     
     
 
@@ -125,4 +132,19 @@ class VerUsuariosListView(LoginRequiredMixin, ListView):
             
             return User.objects.filter(pk=self.request.user.pk)
 
-    
+
+@user_passes_test(lambda u: u.is_superuser)
+def eliminar_usuario(request, user_id):
+    try:
+        usuario = User.objects.get(pk=user_id)
+        if usuario.is_superuser:
+            
+            messages.error(request, "No puedes eliminar a un superusuario.")
+            return redirect('Ver_Usuarios')
+        
+        usuario.delete()
+        messages.success(request, f"Usuario {usuario.username} eliminado correctamente.")
+        return redirect('Ver_Usuarios')
+    except User.DoesNotExist:
+        messages.error(request, "Usuario no encontrado.")
+        return redirect('Ver_Usuarios')   

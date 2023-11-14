@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+
+
 class CategoriaProd(models.Model):
     nombre=models.CharField(max_length=50)
     created=models.DateField(auto_now=True)
