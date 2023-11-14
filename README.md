@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Mi Proyecto de Django/Python "ProyectoWeb"
 
 Este es un proyecto de Django y Python que tiene como función core la de ser una "tienda" de un local de hamburguesas del cual soy uno de los titulares. Puedes utilizar este README como punto de partida para documentar tu proyecto.
@@ -214,3 +215,6 @@ Este proyecto está bajo la licencia LICENSE.txt. Consulta el archivo LICENSE pa
 ## Contacto
 
 Si tienes alguna pregunta o sugerencia, puedes contactarme en moroni_sebastian@yahoo.com.ar
+=======
+# Moroni-Tercera_Pre_Entrega
+>>>>>>> 5f935333e4b410c855c43f337667d888601a873b
